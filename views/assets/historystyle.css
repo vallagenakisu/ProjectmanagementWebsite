@@ -1,0 +1,67 @@
+.historyList li p 
+{
+    display: inline;
+}
+.historyList li 
+{
+    border-bottom: 0.001em solid rgb(159, 153, 153);
+}
+.historyList
+{
+    list-style: none;
+    margin: 1em;
+
+}
+.history
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.done
+{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    padding: 0.8em;
+    align-items: center;
+    width: 18em;
+    margin: 2em;
+    border-radius: 1em;
+    height: 4em;
+    overflow: hidden;
+    box-shadow: 15px 15px 30px #bebebe,
+    -15px -15px 30px #ffffff;
+    transition: 0.3s ease-in-out all;
+    background: #e0e0e0;
+}
+.done:hover
+{
+    width: 20em;
+    height: auto;
+    transition:  0.3s ease-in-out all  ;
+    z-index: 10000;
+
+}
+.history:hover .done 
+{
+    filter: blur(3px);
+}
+.history:hover .done:hover 
+{
+    filter: blur(0px);
+}
+.cardtitle
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+.done.active 
+{
+    height: fit-content;
+}
+.done.active .cardtitle img
+{
+    transform: rotate(180deg);
+}

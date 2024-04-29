@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/historystyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="main-section">
+            <div class="sidebar">
+                <div class="profile-section">
+                    <img src="assets/me.jpg" class="profile-img">
+                    <p class="profile-name">Turzo</p>
+                </div>
+                <ul class="sidebar-items">
+                    <li>
+                        <img src="assets/menu.png" alt="">
+                    </li>
+                    <li>
+                        <img src="assets/planning.png" alt="">
+                    </li>
+                    <li>
+                        <img src="assets/bell.png" alt="">
+                    </li>
+                </ul>
+                <ul class="sidebar-items">
+                    <li>
+                        <img src="assets/logout.png">
+                    </li>
+                </ul>
+            </div>
+            <div class="not-sidebar">
+                <div class="title">
+                    <h1>Commit History</h1>
+                </div>
+                <div class="projectTitle">
+                    <h2>Iftar Party</h2>
+                </div>
+                <div class="history">
+                    <div class="done">
+                        <div class="cardtitle">
+                            <h2>done</h2>
+                        </div>
+                        
+                        <ul class="historyList">
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="done">
+                        <div class="cardtitle">
+                            <h2>done</h2>
+                        </div>
+                        
+                        <ul class="historyList">
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="done">
+                        <div class="cardtitle">
+                            <h2>done</h2>
+                        </div>
+                        
+                        <ul class="historyList">
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                            <li>
+                                <p class="maintask">BongoHall</p>
+                                <p class="subtask">305</p>
+                                <p class="status">done</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="todo">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script>
+        const card = document.querySelectorAll(".done");
+        const toggle = document.querySelectorAll(".toggle");
+        for(let i = 0 ; i < toggle.length ; i++)
+        {
+            toggle[i].onclick = function()
+            {
+                card[i].classList.toggle("active");
+            };
+        }
+
+    </script>
+</body>
+
+</html>
