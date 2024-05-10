@@ -29,5 +29,11 @@ Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 Route::post('/dashboard/{user}/action', [CardsController::class, 'create'])->name('dashboard.post')->middleware('auth');
 Route::get('/users/{user}/create-card', [CardsController::class, 'form'])->name('create')->middleware('auth');
 Route::get('/dashboard/{user}', [CardsController::class, 'getcards'])->name('getcards')->middleware('auth');
-Route::get('/dashboard/{user}/cards/{card}',[CardsController::class, 'subcards'])->name('subcards')->middleware('auth');
+// Route::get('/dashboard/{user}/cards/{card}',[CardsController::class, 'subcards'])->name('subcards')->middleware('auth');
 Route::post('/dashboard/{user}/cards/{card}/action',[SubtasksController::class, 'create'])->name('subcards.post')->middleware('auth');
+
+
+Route::post('/dashboard/{user}/cards/{card}/{subtask}/action',[SubtasksController::class, 'createChildren'])->name('subcards.children.post')->middleware('auth');
+
+
+Route::get('/dashboard/{user}/cards/{card}',[SubtasksController::class, 'getsubtasks'])->name('subcards')->middleware('auth');

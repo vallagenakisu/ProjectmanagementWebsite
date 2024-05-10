@@ -53,10 +53,11 @@
                         </form>
                     </div>
                 </div>
+                @foreach ($sub_tasks as $item)
                 <div class="sub-task-card">
                     <div class="section-one">
-                        <h2>Invitation</h2>
-                        <img src="assets/me.jpg">
+                        <h2>{{$item->title}}</h2>
+                        <img src="{{asset('storage/' . $user->file)}}">
                     </div>
                     <div class="progress-bar">
                         <div class="unfinished">
@@ -69,15 +70,17 @@
                         </label>
                     </div>
                     <div class="section-two">
-                        <form method="get">
-                            <input class="commit-input" type="text" placeholder="Commit Message">
-                            <input class="commit-btn" type="button" value="Commit">
+                        <form method="POST" action="/dashboard/{{$user->id}}/cards/{{$card->id}}/{{$item->id}}/action" >
+                            @csrf
+                            <input type="text" placeholder="Add Subtask" name="title">
+                            <input type="text" placeholder="Assigned To" name="assigned">
+                            <button type="submit">Add</button>
                         </form>
                     </div>
                     <div class="arrow">
-                        <img src="assets/down-arrow.png">
+                        <img src="{{asset('assets/down-arrow.png')}}">
                     </div>
-                    <ul class="task-list">
+                    {{-- <ul class="task-list">
                         <li>
                                 <div class="task">
                                     <p>Omar Hall</p>
@@ -123,8 +126,10 @@
                                     </label>
                                 </div>
                         </li>
-                    </ul>
-                </div>
+                    </ul> --}}
+                </div>                    
+                @endforeach
+
             </div>
         </div>
     </div>

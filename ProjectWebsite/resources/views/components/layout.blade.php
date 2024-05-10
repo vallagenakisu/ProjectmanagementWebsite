@@ -14,7 +14,7 @@
     {{$slot}}
 </body>
 <script>
-    const card = document.querySelectorAll(".sub-task-card");
+const card = document.querySelectorAll(".sub-task-card");
 const arrow_toggle = document.querySelectorAll(".arrow");
 const progress = document.querySelectorAll(".finished");
 

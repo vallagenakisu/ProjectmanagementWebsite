@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class SubTasks extends Model
 {
     use HasFactory;
+    public function cards()
+    {
+        return $this->belongsTo(Cards::class);   
+    }
+    public function scopeRoot($query)
+    {
+        return $query->whereNull('parent_id');
+    }
+    public function parent()
+    {
+        return $this->hasMany(SubTasks::class , 'parent_id');
+    }
 }
