@@ -53,7 +53,9 @@ class SubtasksController extends Controller
     }
     public function getsubtasks(User $user , Cards $card)
     {
-        $subtasks = SubTasks::root()->get();
+        //$subtasks = SubTasks::root()->get();
+        $subtasks = SubTasks::tree()->get()->toTree();
+
         return view('sub-task-dashboard',
         [
             'user' => $user,

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 class SubTasks extends Model
 {
@@ -12,12 +13,9 @@ class SubTasks extends Model
     {
         return $this->belongsTo(Cards::class);   
     }
-    public function scopeRoot($query)
-    {
-        return $query->whereNull('parent_id');
-    }
-    public function parent()
-    {
-        return $this->hasMany(SubTasks::class , 'parent_id');
-    }
+    // public function parent()
+    // {
+    //     return $this->hasMany(SubTasks::class , 'parent_id');
+    // }
+    use HasRecursiveRelationships;
 }

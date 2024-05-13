@@ -53,83 +53,49 @@
                         </form>
                     </div>
                 </div>
-                @foreach ($sub_tasks as $item)
-                <div class="sub-task-card">
-                    <div class="section-one">
-                        <h2>{{$item->title}}</h2>
-                        <img src="{{asset('storage/' . $user->file)}}">
-                    </div>
-                    <div class="progress-bar">
-                        <div class="unfinished">
-                            <div class="finished">
+                <div class="sub-task-card-containers">
+                    @foreach ($sub_tasks as $item)
+                    <div class="sub-task-card-container">
+                        <div class="sub-task-card">
+                            <div class="items-holder">
+                                <div class="section-one">
+                                    <h2>{{$item->title}}</h2>
+                                    <img src="{{asset('storage/' . $user->file)}}">
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="unfinished">
+                                        <div class="finished">
+                                        </div>
+                                    </div>
+                                    <label class="container">
+                                        <input checked="checked" type="checkbox">
+                                        <div class="checkmark"></div>
+                                    </label>
+                                </div>
+                                <div class="section-two">
+                                    <form method="POST" action="/dashboard/{{$user->id}}/cards/{{$card->id}}/{{$item->id}}/action" >
+                                        @csrf
+                                        <input class="add_subtask" type="text" placeholder="Add Subtask" name="title">
+                                        <input class="assigned_to" type="text" placeholder="Assigned To" name="assigned">
+                                        <button class="add-btn" type="submit">Add</button>
+                                    </form>
+                                </div>
                             </div>
+                            <div class="arrow">
+                                <img src="{{asset('assets/down-arrow.png')}}">
+                            </div>
+                            <ul style="list-style: none; padding-left:7em  " >
+                                <li>
+                                    @foreach ($item->children as $elements)
+                                    <x-sub-task-li :elements="$elements"/>                        
+                                    @endforeach
+                                </li>
+                            </ul>  
                         </div>
-                        <label class="container">
-                            <input checked="checked" type="checkbox">
-                            <div class="checkmark"></div>
-                        </label>
-                    </div>
-                    <div class="section-two">
-                        <form method="POST" action="/dashboard/{{$user->id}}/cards/{{$card->id}}/{{$item->id}}/action" >
-                            @csrf
-                            <input type="text" placeholder="Add Subtask" name="title">
-                            <input type="text" placeholder="Assigned To" name="assigned">
-                            <button type="submit">Add</button>
-                        </form>
-                    </div>
-                    <div class="arrow">
-                        <img src="{{asset('assets/down-arrow.png')}}">
-                    </div>
-                    {{-- <ul class="task-list">
-                        <li>
-                                <div class="task">
-                                    <p>Omar Hall</p>
-                                    <label class="container">
-                                        <input checked="checked" type="checkbox">
-                                        <div class="checkmark"></div>
-                                    </label>
-                                </div>
-                        </li>
-                        <li>
-                                <div class="task">
-                                    <p>Omar Hall</p>
-                                    <label class="container">
-                                        <input checked="checked" type="checkbox">
-                                        <div class="checkmark"></div>
-                                    </label>
-                                </div>
-                        </li>
-                        <li>
-                                <div class="task">
-                                    <p>Omar Hall</p>
-                                    <label class="container">
-                                        <input checked="checked" type="checkbox">
-                                        <div class="checkmark"></div>
-                                    </label>
-                                </div>
-                        </li>
-                        <li>
-                                <div class="task">
-                                    <p>Omar Hall</p>
-                                    <label class="container">
-                                        <input checked="checked" type="checkbox">
-                                        <div class="checkmark"></div>
-                                    </label>
-                                </div>
-                        </li>
-                        <li>
-                                <div class="task">
-                                    <p>Omar Hall</p>
-                                    <label class="container">
-                                        <input checked="checked" type="checkbox">
-                                        <div class="checkmark"></div>
-                                    </label>
-                                </div>
-                        </li>
-                    </ul> --}}
-                </div>                    
-                @endforeach
 
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
