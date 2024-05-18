@@ -24,4 +24,10 @@ class Controller extends BaseController
             'friends' => $friends
         ]);
     }
+    public function notification(User $user)
+    {
+        return view('notification',[
+            'user' => $user
+        ]);
+    }
 }

@@ -49,3 +49,4 @@ Route::get('/dashboard/user/{user}',[Controller::class , 'user'])->name('user')-
 Route::get('/dashboard/user/{user}/friends',[FriendsController::class, 'index'])->name('friends')->middleware('auth');
 Route::get('/dashboard/user/{user}/myfriends',[FriendsController::class, 'myfriends'])->name('myfriends')->middleware('auth');
 Route::get('dashboard/user/{user}/visit/profile/{friends}',[Controller::class, 'visit'])->name('visit')->middleware('auth');
+Route::get('/dashboard/user/{user}/notification',[Controller::class, 'notification'])->name('notification')->middleware('auth');

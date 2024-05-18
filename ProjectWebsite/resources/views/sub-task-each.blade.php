@@ -26,10 +26,13 @@
                                 <p>Friends</p>
                             </li>
                         </a>
-                    <li class="sidebar-list">
-                        <img src="{{asset('assets/bell.png')}}" alt="">
-                        <p>Notifications</p>
-                    </li>
+                        <a href="{{route('notification',$user)}}">
+                    
+                            <li class="sidebar-list">
+                                <img src="{{asset('assets/bell.png')}}" alt="">
+                                <p>Notifications</p>
+                            </li>
+                        </a>
                 </ul>
                 <ul class="sidebar-items">
                     <li>
