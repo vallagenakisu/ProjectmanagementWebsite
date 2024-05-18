@@ -39,6 +39,7 @@
                  </div>
                  <div class="friendlist">
                  @foreach ($user->Friends as $item)
+                 <a href="{{route('visit',[$user->id,$item->id])}}">
                     <div class="findfriend">
                         <div class="image">
                             <img class="actual" src="{{asset('storage/' . $item->file)}}">
@@ -55,6 +56,7 @@
                             </div>
                         </div>
                     </div>
+                </a>
 
                 @endforeach
                 </div>

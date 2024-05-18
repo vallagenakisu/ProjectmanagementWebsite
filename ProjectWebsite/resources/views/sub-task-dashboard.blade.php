@@ -43,9 +43,17 @@
                             <label for="Title" >Enter The Title</label>
                             <input type="text" name="title">
                         </div>
-                        <div class="input">
+                        {{-- <div class="input">
                             <label for="Assigned" >Assigned To</label>
                             <input type="email" name="assigned">
+                        </div> --}}
+                        <div class="dropdown" style="margin-top:1em">
+                            <label for="">Select a friend</label>
+                            <select name="assigned" id="assigned" class="assigned" >
+                                @foreach ($user->friends as $friend)
+                                <option value="{{$friend->email}}"> {{$friend->name}}</option>                                    
+                                @endforeach
+                            </select>
                         </div>
                         <button type="submit" class="submit-btn">Submit</button>
                     </form>
@@ -63,10 +71,10 @@
                                             $admin = $item->user;
                                         ?>
                                         <img src="{{asset('storage/' . $admin->file)}}">
-                                        <form action="/dashboard/{{$user->id}}/cards/{{$card->id}}/{{$item->id}}/update" method="POST" >
+                                        {{-- <form action="/dashboard/{{$user->id}}/cards/{{$card->id}}/{{$item->id}}/update" method="POST" >
                                             @csrf
                                             <div class="btn"><button class="complete">Done</button></div>
-                                        </form>
+                                        </form> --}}
                                         <form action="/dashboard/{{$user->id}}/cards/{{$card->id}}/{{$item->id}}/delete" method="POST" >
                                             @csrf
                                             <div class="btn"><button class="Delete">Delete</button></div>

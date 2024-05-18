@@ -57,4 +57,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(SubTasks::class);
     }
+    public function commit()
+    {
+        return $this->hasMany(CommitModel::class);
+    }
 }

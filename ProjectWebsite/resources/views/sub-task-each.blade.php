@@ -99,9 +99,13 @@
                                         <label for="Title" >Enter The Title</label>
                                         <input type="text" name="title">
                                     </div>
-                                    <div class="input">
-                                        <label for="Assigned" >Assigned To</label>    
-                                        <input type="email" name="assigned">
+                                    <div class="dropdown" style="margin-top:1em">
+                                        <label for="">Select a friend</label>
+                                        <select name="assigned" id="assigned" class="assigned" >
+                                            @foreach ($user->friends as $friend)
+                                            <option value="{{$friend->email}}"> {{$friend->name}}</option>                                    
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <button type="submit" class="submit-btn">Submit</button>
                                 </form>

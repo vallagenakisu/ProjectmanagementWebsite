@@ -70,23 +70,10 @@ class SubtasksController extends Controller
         $subtasks = SubTasks::tree()->get()->toTree();
         foreach($subtasks as $item)
         {
-            // $flag = 0 ;
-            // foreach($item->children as $child)
-            // {
-            //     if($child->status == true)
-            //     {
-            //         $flag++;
-            //     }
-            // }
             if($item->completion == $item->no_child)
             {
                 $item->status = true;
             }
-            else 
-            {
-                $item->status = false;
-            }
-
         }
         return view('sub-task-dashboard',
         [

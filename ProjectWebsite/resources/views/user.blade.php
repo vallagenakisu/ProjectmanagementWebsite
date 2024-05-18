@@ -65,7 +65,34 @@
                     </div>
                 </div>
                 <div class="user-projects">
-                    <h2>Projects</h2>
+                    <h2>Tasks</h2>
+                </div>
+                <div class="project-list-container">
+                    <?php
+                        $collection = $user->subtasks;
+                    ?>
+                    @foreach ($collection as $item)
+                    <?php
+                        $card = $item->card;
+                    ?>
+                    <div class="list">
+                        <div class="title"><h2>{{$item->title}}</h2></div>
+                        <div class="img"> <img src="{{asset('storage/'.$user->file)}}" alt="image"> </div>
+                        <form action="/dashboard/{{$user->id}}/cards/{{$card->id}}/{{$item->id}}/update" method="POST" >
+                            @csrf
+                            <div class="btn"><button class="complete">Done</button></div>
+                        </form>
+                        <form action="/dashboard/{{$user->id}}/cards/{{$card->id}}/{{$item->id}}/delete" method="POST" >
+                            @csrf
+                            <div class="btn"><button class="Delete">Delete</button></div>
+                        </form>
+                        @if($item->status == 1)
+                        <div class="done"> <img src="{{asset('assets/correct.png')}}" alt="image"> </div>
+                        @else
+                        <div class="done" style="display: none"> <img src="{{asset('assets/correct.png')}}" alt="image"> </div>
+                        @endif
+                    </div>    
+                    @endforeach
 
                 </div>
 
