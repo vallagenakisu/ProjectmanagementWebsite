@@ -12,11 +12,6 @@
                     <input name="title"  class="input form-control "  type="name" />
                     <label class="label" for="email">Enter the title</label>
                 </div>
-                {{-- Assigned To --}}
-                <div class="input-field">
-                    <input name="assigned"  class="input form-control "  type="name" />
-                    <label class="label" for="email">Assigned To</label>
-                </div>
                 <button type="submit" class="submit-btn">Create</button>
             </form>
         </div>

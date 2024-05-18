@@ -9,6 +9,9 @@
         </div>
         <div class="login-section">
             <div class="loginform">
+                @if(session('error'))
+                    {{session('error')}}
+                @endif
                 <form class="form-control" action="{{route('login.post')}}" method="POST">
                     @csrf
                     <p class="title">Login</p>
@@ -23,7 +26,6 @@
                     <button class="submit-btn">Log In</button>
                     <a href="{{url('/')}}/registration">Click Here to Register</a>
                 </form>
-
             </div>
         </div>
     </div>

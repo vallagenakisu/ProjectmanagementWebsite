@@ -1,4 +1,17 @@
 <x-layout>
+
+    <?php
+        $collection = $user->notifications;
+        $flag = 0 ;
+        foreach($collection as $item)
+        {
+            if($item->read_at == null)
+            {
+                $flag = 1;
+                break;
+            }
+        }
+    ?>
     <div class="header">
         <div class="main-section">
             <div class="sidebar">
@@ -20,11 +33,26 @@
                                 <img src="{{asset('assets/group.png')}}" alt="">
                                 <p>Friends</p>
                             </li>
-                        </a>
+                    </a>
+                    @if($flag == 1)
+                    <?php
+                        $flag = 0;
+                    ?>
+                    <a href="{{route('notification', $user->id) }}">
                     <li class="sidebar-list">
-                        <img src="{{asset('assets/bell.png')}}" alt="">
+                        <img src="{{asset('assets/bellOn.png')}}" alt="">
                         <p>Notifications</p>
                     </li>
+                    </a>
+                    @else 
+                    <a href="{{route('notification', $user->id) }}">
+                        <li class="sidebar-list">
+                            <img src="{{asset('assets/bell.png')}}" alt="">
+                            <p>Notifications</p>
+                        </li>
+                    </a>
+                    @endif 
+
                 </ul>
                 <ul class="sidebar-items">
                     <li>
@@ -37,16 +65,15 @@
                     <h1>Notifications</h1>
                 </div>
                 <div class="notification-container">
-                    <?php
-                        $collection = $user->notifications;
-                    ?>
                     @foreach ($collection as $item)
                     <div class="notification">
-                        <p>{{$item->data['name']}} Added You</p>
+                        <?php 
+                            $item->markAsRead();
+                        ?>
+                        <p> {{$item->data['data']}} </p>
                     </div>                        
                     @endforeach
-
-                </div>
+            </div>
         </div>
     </div>
 </x-layout>

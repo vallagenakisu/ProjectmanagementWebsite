@@ -75,6 +75,7 @@
                     <?php
                         $card = $item->card;
                     ?>
+                    <a href="/dashboard/{{$user->id}}/cards/{{$card->id}}/sub-task/{{$item->id}}">
                     <div class="list">
                         <div class="title"><h2>{{$item->title}}</h2></div>
                         <div class="img"> <img src="{{asset('storage/'.$user->file)}}" alt="image"> </div>
@@ -91,7 +92,8 @@
                         @else
                         <div class="done" style="display: none"> <img src="{{asset('assets/correct.png')}}" alt="image"> </div>
                         @endif
-                    </div>    
+                    </div>   
+                    </a> 
                     @endforeach
 
                 </div>

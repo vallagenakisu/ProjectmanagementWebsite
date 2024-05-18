@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Cards;
 use App\Models\SubTasks;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\SubTasks as NotificationsSubTasks;
 
 class SubtasksController extends Controller
 {
@@ -29,6 +31,7 @@ class SubtasksController extends Controller
         $sub->adminName = $request->assigned;
         $sub->card_id = $card->id;
         $sub->user_id = $finduser->id;
+        Notification::send($finduser, new NotificationsSubTasks([$user->name,$card->title,$sub->title]));
         $sub->save();
         if($sub)
         {

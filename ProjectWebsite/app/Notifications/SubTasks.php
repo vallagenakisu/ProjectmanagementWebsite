@@ -6,20 +6,20 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use App\Http\Controllers\FriendsController;
-class Added extends Notification
+
+class SubTasks extends Notification
 {
+    protected $data;
     use Queueable;
-    protected $name;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($data)
     {
-        $this->name = $name;
+        $this->data = $data;
     }
 
     /**
@@ -57,7 +57,7 @@ class Added extends Notification
     {
         return 
         [
-            'data' => 'This user '. $this->name.' added you'
+            'data' => 'This user '. $this->data[0].' added you to the card '.$this->data[1].' with the subtask '.$this->data[2]
         ];
     }
 }

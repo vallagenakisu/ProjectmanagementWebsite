@@ -30,12 +30,11 @@ class CardsController extends Controller
         (
             [
             'title' => 'required',
-            'assigned' => 'required',
             ]
         );
         $cards = new Cards();
         $cards->title = $request->title;
-        $cards->adminName = $request->assigned;
+        // $cards->adminName = $request->assigned;
         $cards->user_id = $user->id;
         $cards->save();
         if($cards)
