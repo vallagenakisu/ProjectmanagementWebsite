@@ -1,3 +1,84 @@
+.tree
+{
+  background-color: rgb(253, 253, 253);
+  border-radius: 1em;
+  overflow: scroll;
+  scrollbar-width: none;
+  margin: 2em;
+  box-shadow: 1px 1px 4px #8F949A;
+}
+ul  
+{
+  list-style: none;
+}
+.tree ul 
+{
+  margin: 0 0 0 15em;
+  padding: 0;
+  list-style: none;
+  color: #369;
+  position: relative;
+}
+.tree:before, .tree ul:before {
+  content: "";
+  display: block;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border: 0.02em solid;
+  background: white;
+  /* z-index: -1; */
+}
+.tree li {
+  font-weight: bold;
+  line-height: 3em;
+  margin: 0;
+  padding: 1.5em 0 0 2em;
+  position: relative;
+  /* z-index: -1; */
+}
+.tree li:before {
+  border-top: 1px solid;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  margin-top: 1em;
+  position: absolute;
+  top: 1.5em;
+  width: 2em;
+}
+.tree li:last-child:before {
+  background: rgba(255, 255, 255, 0);
+  bottom: 0;
+  height: auto;
+  top: 1.5em;
+}
+.tree > li:before {
+  border-top: none !important;
+}
+
+
+
+.sticky {
+  border-radius: 0.3em;
+  color: #369;
+  width: 25em;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 4px #8F949A;
+  background: white;
+  padding: 0.3em;
+  border: 1px solid #afafaf;
+  transition: transform 0.5s ease-in;
+}
+.sticky:hover 
+{
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in;
+}
 .section-one img
 {
     height: 3em;
@@ -6,208 +87,70 @@
 .section-one
 {
     display: flex;
-    gap:4em;
+    width: 100%;
+    gap:2em;
     align-items: center;
     justify-content: center;
 }
-.items-holder
-{
-    background-color: rgba(237, 230, 235, 0.911);
-    display: flex;
-    flex-direction: column;
-    width: 25em;
-    height: 12em;
-    margin: 1em;
-    padding: 1em;
-    border-radius: 1.4em;
-    gap: 0.5em;
-    box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.5);
-    transition: transform 0.2s ease-in-
-}
-.sub-task-card ul 
-{
-  display: none;
-}
-.sub-task-card 
+/* form */
+.add-task
 {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-.sub-task-card.active ul
+.input label 
 {
-  display: block;
+  font-weight: 300;
 }
-.sub-task-card:hover 
+.add-task form button 
 {
-    box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.8);
-    transform: scale(1);
-    transition: transform 0.2s ;
-    z-index: 1;
+  width: 10em;
 }
-.commit-input
+.add-task form 
 {
-    border-radius: 0.5em;
-    padding: 0.5em;
-    border: none;
-    margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.commit-btn
+.add-task 
 {
-    padding: .8em;
-    background-color: rgba(69, 213, 69, 0.922);
-    color: white;
-    border: none;
-    border-radius: 0.8em;
-    font-weight: 600;    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 4px #8F949A;
+  background-color: white;
+  border-radius:1em ;
+  padding: 1em;
+  justify-content: center;
+  padding: 1em;
+
 }
-.arrow img
+.input 
 {
-    height: 1em;
-    transition: transform ease-in-out 0.25s;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
 }
-.sub-task-card.active .arrow img
+.input input 
 {
-  transform: rotate(-180deg);
+  width: 20em;
+  height: 2em;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin: 0.5em;
 }
-/* .sub-task-card.active
+.list .done img
 {
-  transition: height ease-in-out 0.25s;
-} */
-/* check-box */
-/* Hide the default checkbox */
-.container input {
-    display: none;
-  }
-  
-  .container {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    font-size: 20px;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 1.3em;
-    width: 1.3em;
-    background-color: #2196F300;
-    border-radius: 0.25em;
-    transition: all 0.25s;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
-    background-color: #2196F3;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    transform: rotate(0deg);
-    border: 0.1em solid black;
-    left: 0;
-    top: 0;
-    width: 1.05em;
-    height: 1.05em;
-    border-radius: 0.25em;
-    transition: all 0.25s, border-width 0.1s;
-  }
-  
-  /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
-    left: 0.45em;
-    top: 0.25em;
-    width: 0.25em;
-    height: 0.5em;
-    border-color: #fff0 white white #fff0;
-    border-width: 0 0.15em 0.15em 0;
-    border-radius: 0em;
-    transform: rotate(45deg);
-  }
-  .task-list
-  {
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    gap: 1em;
-    scrollbar-width: none;
-  }
-  .task 
-  {
-    display: flex;
-    background-color: rgb(102, 6, 121);
-    padding: 1em;
-    border-radius: 1em;
-    align-items: center;
-  }
-  .task p
-  {
-    flex: 1;
-    align-self: flex-start;
-  }
-  .task-list li
-  {
-    list-style: none;
-  }
-  .progress-bar
-  {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    align-items: center;
-  }
-  .unfinished
-  {
-    width: 13em;
-    background-color: rgb(175, 163, 163);
-    height: 0.5em;
-    border-radius: 1em;
-    transition: width ease-in 4s; 
-  }
-  .finished
-  {
-    width: 0em;
-    max-width: 13em;
-    background-color: #b343b3;
-    height: 100%;
-    border-radius: 1em;
-    transition: width ease-in 4s; 
-  }
-  .section-two input 
-  {
-    padding: 0.5em;
-    border-radius: 0.5em;
-    border: none;
-    margin-bottom: 0.5em;
-  }
-  .section-two button 
-  {
-    padding: .8em;
-    background-color: rgba(72, 138, 72, 0.922);
-    color: white;
-    border: none;
-    border-radius: 0.8em;
-    font-weight: 600;
-  }
-  .form-sub-tasks
-  {
-    display: none;
-  }
-  .sub-task-card-container
-  {
-      display: flex;
-      flex-direction: column;
-      column-gap: 5em;
-  }
-  .sub-task-card-containers
-  {
-    display: flex;
-    flex-direction: column;
-  }
+  height: 1em;
+}
+.done img 
+{
+  height: 1em;
+}
+.done 
+{
+  border: none;
+  display: flex;
+}

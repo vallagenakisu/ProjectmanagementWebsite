@@ -9,13 +9,13 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 class SubTasks extends Model
 {
     use HasFactory;
-    public function cards()
+    public function card()
     {
-        return $this->belongsTo(Cards::class);   
+        return $this->belongsTo(Cards::class);
     }
-    // public function parent()
-    // {
-    //     return $this->hasMany(SubTasks::class , 'parent_id');
-    // }
     use HasRecursiveRelationships;
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

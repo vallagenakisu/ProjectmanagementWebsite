@@ -2,26 +2,29 @@
     <div class="header">
         <div class="main-section">
             <div class="sidebar">
-                <div class="profile-section">
-                    <img src="{{asset('storage/' . $user->file)}}" class="profile-img">
-                    <p class="profile-name">{{$user->name}}</p>
-                </div>
+                <a href="{{route('user',$user)}}">
+                    <div class="profile-section">
+                        <img src="{{asset('storage/' . $user->file)}}" class="profile-img">
+                        <p class="profile-name">{{$user->name}}</p>
+                    </div>
+                </a>
                 <ul class="sidebar-items">
+                    <a href="{{route('getcards',$user->id)}}">
                     <li class="sidebar-list">
                         <img src="{{asset('assets/menu.png')}}" alt="">
                         <p>Dashboard</p>
                     </li>
-                    <li class="sidebar-list">
-                        <img src="{{asset('assets/planning.png')}}" alt="">
-                        <p>Commits</p>
-                    </li>
+                    </a>
+                    <a href="{{route('friends',$user->id)}}">
+                        <li class="sidebar-list">
+                                <img src="{{asset('assets/group.png')}}" alt="">
+                                <p>Friends</p>
+                            </li>
+                        </a>
                     <li class="sidebar-list">
                         <img src="{{asset('assets/bell.png')}}" alt="">
                         <p>Notifications</p>
                     </li>
-                    {{-- <li class="sidebar-list">
-                        <img src="{{asset('assets/create.png')}}" alt="">
-                    </li> --}}
                 </ul>
                 <ul class="sidebar-items">
                     <li>
@@ -34,7 +37,7 @@
                     <h1>Projects</h1>
                 </div>
 
-            <div class="project-cards-container">
+             <div class="project-cards-container">
                 @foreach ($cards as $item)
                 @if($item->user_id == $user->id)
                 <a href="/dashboard/{{$user->id}}/cards/{{$item->id}}">
@@ -61,7 +64,7 @@
                     </div>
                 </a>
 
-            </div>
+             </div>
             </div>
         </div>
     </div>

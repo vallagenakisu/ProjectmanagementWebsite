@@ -18,8 +18,12 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('adminName');
+            $table->boolean('status')->default(false);
+            $table->integer('completion')->default(0);
+            $table->integer('no_child')->default(0);
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreignId('card_id')->references('id')->on('cards')->onDelete('cascade');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

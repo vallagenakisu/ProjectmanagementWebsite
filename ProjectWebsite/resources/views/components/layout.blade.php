@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{asset('assets/login.css')}}">
     <link rel="stylesheet" href="{{asset('assets/project_style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/project.js')}}">
+    <link rel="stylesheet" href="{{asset('assets/sub-task.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/user.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/friends.css')}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>

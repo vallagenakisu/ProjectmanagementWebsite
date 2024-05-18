@@ -45,13 +45,16 @@ class AuthManager extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'file' => 'required',
+            'skills' => 'required|string'
             ]
         );
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['password'] =Hash::make( $request->password);
         $data['file'] = $request->file('file')->store('file','public');
+        $data['skills'] = $request->skills;
         $user = User::create($data);
+        //dd($data);
         if($user)
         {
             auth()->login($user);

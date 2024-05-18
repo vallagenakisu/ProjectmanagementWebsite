@@ -43,6 +43,10 @@
                     <label class="label" for="password">Enter Password</label>
                 </div>
                 <div class="input-field">
+                    <input name = "skills" class="input form-control " type="text"/>
+                    <label class="label" for="skills">Enter Your Skills "Comma Separated"</label>
+                </div>
+                <div class="input-field">
                     <label  for="file">Attatch Your Profile Picture</label>
                     <input name = "file" class="input form-control " type="file" />
 
